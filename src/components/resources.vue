@@ -54,10 +54,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+* {
+  box-sizing: border-box;
+}
+
 .card {
   border: gray solid 1px;
   margin: 5px;
   text-align: center;
+  background-color: lightgray;
+  padding: 8px;
 }
 
 .tags {
@@ -68,5 +74,7 @@ export default {
 .tags li {
   padding: 5px;
   margin: 5px;
+  border: gray solid 1px;
+  background-color: lightgoldenrodyellow;
 }
 </style>
