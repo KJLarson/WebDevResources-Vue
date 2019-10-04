@@ -28,6 +28,21 @@ export default {
       websites: [
         {
           id: 1,
+          name: "Boostnote",
+          url: "https://boostnote.io/",
+          description:
+            "Open source software is made by people just like you. Learn how to launch and grow your project.",
+          tags: [{ name: "open-source" }]
+        },
+        {
+          id: 2,
+          name: "Linked Ideas",
+          url: "http://fespinoza.github.io/LinkedIdeas/",
+          description: "A macOS/iOS apps to treat ideas as links of concepts.",
+          tags: [{ name: "productivity" }, { name: "tool" }]
+        },
+        {
+          id: 3,
           name: "Open Source Guide",
           url: "https://opensource.guide/",
           description:
@@ -37,14 +52,6 @@ export default {
             { name: "productivity" },
             { name: "tool" }
           ]
-        },
-        {
-          id: 2,
-          name: "Boostnote",
-          url: "https://boostnote.io/",
-          description:
-            "Open source software is made by people just like you. Learn how to launch and grow your project.",
-          tags: [{ name: "open-source" }]
         }
       ]
     };
@@ -73,7 +80,7 @@ export default {
 
 .tags li {
   padding: 5px;
-  margin: 5px;
+  margin: 0 5px;
   border: gray solid 1px;
   background-color: lightgoldenrodyellow;
 }
