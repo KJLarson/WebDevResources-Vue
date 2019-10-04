@@ -1,7 +1,7 @@
 <!-- Using https://vuejsexamples.com/a-simple-card-components-with-vue-js/ to try to make this card -->
 
 <template>
-  <div>
+  <div id="container">
     <div class="card" v-for="site in websites" v-bind:key="site.id">
       <div class="card-body">
         <h2 class="card-title">{{ site.name }}</h2>
@@ -17,6 +17,8 @@
     </div>
   </div>
 </template>
+
+
 
 <script>
 export default {
@@ -65,18 +67,25 @@ export default {
   box-sizing: border-box;
 }
 
+#container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card {
   border: gray solid 1px;
   margin: 5px;
   text-align: center;
   background-color: lightgray;
   padding: 8px;
+  width: 45%;
 }
 
 .tags {
   list-style: none;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .tags li {
