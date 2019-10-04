@@ -1,22 +1,25 @@
 <!-- Using https://vuejsexamples.com/a-simple-card-components-with-vue-js/ to try to make this card -->
 
 <template>
-    <div>
-        <div class="card" style="width: 18rem;"  v-for="site in websites" v-bind:key="site.id">
-            <div class="card-body">
-                <h2 class="card-title">{{ site.name }}</h2>
-                <p class="card-text">{{ site.url }}</p>
-                <p>{{ site.description }}</p>
-            </div>
-        </div>
+  <div>
+    <div class="card" style="width: 18rem;" v-for="site in websites" v-bind:key="site.id">
+      <div class="card-body">
+        <h2 class="card-title">{{ site.name }}</h2>
+        <p>{{ site.description }}</p>
+        <p>
+          Go to
+          <a v-bind:href="site.url">{{ site.name }}</a>
+        </p>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "Resources",
   // template: "#card",
-  props: ['name', 'url'],
+  // props: ["name", "url"],
   data() {
     return {
       websites: [
@@ -44,7 +47,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .card {
-    border: gray solid 1px;
-  }
+.card {
+  border: gray solid 1px;
+  margin: 5px;
+}
 </style>

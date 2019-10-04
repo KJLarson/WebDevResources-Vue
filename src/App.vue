@@ -2,19 +2,15 @@
   <div id="app">
     <h1>Web Development Resources</h1>
     <Resources></Resources>
-    <img width="25%" src="./assets/logo.png">
-    <HelloWorld msg="Hello Vue in CodeSandbox!"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
 import Resources from "./components/resources";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
     Resources
   }
 };
