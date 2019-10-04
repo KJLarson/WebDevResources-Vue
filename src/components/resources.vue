@@ -2,7 +2,7 @@
 
 <template>
   <div id="container">
-    <div class="card" v-for="(site, index) in alphaWebsites" :key="index">
+    <div class="card" v-for="(site) in alphaWebsites" :key="site.id">
       <div class="card-body">
         <h2 class="card-title">{{ site.name }}</h2>
         <p>{{ site.description }}</p>
@@ -29,6 +29,7 @@ export default {
     return {
       websites: [
         {
+          id: 1,
           name: "Boostnote",
           url: "https://boostnote.io/",
           description:
@@ -36,12 +37,14 @@ export default {
           tags: [{ name: "open-source" }]
         },
         {
+          id: 2,
           name: "Linked Ideas",
           url: "http://fespinoza.github.io/LinkedIdeas/",
           description: "A macOS/iOS apps to treat ideas as links of concepts.",
           tags: [{ name: "productivity" }, { name: "tool" }]
         },
         {
+          id: 3,
           name: "Open Source Guide",
           url: "https://opensource.guide/",
           description:
@@ -53,20 +56,19 @@ export default {
           ]
         },
         {
+          id: 4,
           name: "Gatsby advanced starter",
           url: "https://github.com/Vagr9K/gatsby-advanced-starter",
           description:
             "A high performance skeleton starter for GatsbyJS that focuses on SEO/Social features/development environment.",
-          tags: [
-            { name: "gatsby" }
-          ]
+          tags: [{ name: "gatsby" }]
         }
       ]
     };
   },
   computed: {
     alphaWebsites: function() {
-      return this.websites.sort(function(a, b) {
+      return this.websites.slice().sort(function(a, b) {
         let nameA = a.name.toUpperCase();
         let nameB = b.name.toUpperCase();
         if (nameA < nameB) {
