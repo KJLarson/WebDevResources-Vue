@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <div class="card" style="width: 18rem;" v-for="site in websites" v-bind:key="site.id">
+    <div class="card" v-for="site in websites" v-bind:key="site.id">
       <div class="card-body">
         <h2 class="card-title">{{ site.name }}</h2>
         <p>{{ site.description }}</p>
@@ -10,6 +10,9 @@
           Go to
           <a v-bind:href="site.url">{{ site.name }}</a>
         </p>
+        <ul class="tags">
+          <li v-for="tag in site.tags">{{ tag.name }}</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -29,7 +32,11 @@ export default {
           url: "https://opensource.guide/",
           description:
             "An open source markdown editor for Mac, Windows and Linux app. The intuitive and stylish note taking tool for developers.",
-          tags: ["markdown", "productivity", "tool"]
+          tags: [
+            { name: "markdown" },
+            { name: "productivity" },
+            { name: "tool" }
+          ]
         },
         {
           id: 2,
@@ -37,7 +44,7 @@ export default {
           url: "https://boostnote.io/",
           description:
             "Open source software is made by people just like you. Learn how to launch and grow your project.",
-          tags: ["open-source"]
+          tags: [{ name: "open-source" }]
         }
       ]
     };
@@ -49,6 +56,17 @@ export default {
 <style scoped>
 .card {
   border: gray solid 1px;
+  margin: 5px;
+  text-align: center;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+}
+
+.tags li {
+  padding: 5px;
   margin: 5px;
 }
 </style>
