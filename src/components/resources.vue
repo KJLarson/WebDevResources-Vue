@@ -2,7 +2,7 @@
 
 <template>
   <div id="container">
-    <div class="card" v-for="site in websites" v-bind:key="site.id">
+    <div class="card" v-for="(site, index) in alphaWebsites" :key="index">
       <div class="card-body">
         <h2 class="card-title">{{ site.name }}</h2>
         <p>{{ site.description }}</p>
@@ -11,7 +11,7 @@
           <a v-bind:href="site.url">{{ site.name }}</a>
         </p>
         <ul class="tags">
-          <li v-for="tag in site.tags">{{ tag.name }}</li>
+          <li v-for="(tag, index) in site.tags" :key="index">{{ tag.name }}</li>
         </ul>
       </div>
     </div>
@@ -29,7 +29,6 @@ export default {
     return {
       websites: [
         {
-          id: 1,
           name: "Boostnote",
           url: "https://boostnote.io/",
           description:
@@ -37,14 +36,12 @@ export default {
           tags: [{ name: "open-source" }]
         },
         {
-          id: 2,
           name: "Linked Ideas",
           url: "http://fespinoza.github.io/LinkedIdeas/",
           description: "A macOS/iOS apps to treat ideas as links of concepts.",
           tags: [{ name: "productivity" }, { name: "tool" }]
         },
         {
-          id: 3,
           name: "Open Source Guide",
           url: "https://opensource.guide/",
           description:
@@ -54,9 +51,33 @@ export default {
             { name: "productivity" },
             { name: "tool" }
           ]
+        },
+        {
+          name: "Gatsby advanced starter",
+          url: "https://github.com/Vagr9K/gatsby-advanced-starter",
+          description:
+            "A high performance skeleton starter for GatsbyJS that focuses on SEO/Social features/development environment.",
+          tags: [
+            { name: "gatsby" }
+          ]
         }
       ]
     };
+  },
+  computed: {
+    alphaWebsites: function() {
+      return this.websites.sort(function(a, b) {
+        let nameA = a.name.toUpperCase();
+        let nameB = b.name.toUpperCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      });
+    }
   }
 };
 </script>
@@ -70,6 +91,7 @@ export default {
 #container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .card {
