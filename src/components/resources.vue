@@ -76,6 +76,7 @@ export default {
 .tags {
   list-style: none;
   display: flex;
+  justify-content: center;
 }
 
 .tags li {
