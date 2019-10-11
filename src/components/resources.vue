@@ -11,7 +11,7 @@
           <a v-bind:href="site.url">{{ site.name }}</a>
         </p>
         <ul class="tags">
-          <li v-for="(tag, index) in site.tags" :key="index">{{ tag.name }}</li>
+          <li v-bind:class="tag.name" v-for="(tag, index) in site.tags" :key="index">{{ tag.name }}</li>
         </ul>
       </div>
     </div>
@@ -21,6 +21,8 @@
 
 
 <script>
+import { EventBus } from "../event-bus.js";
+
 export default {
   name: "Resources",
   // template: "#card",
@@ -57,7 +59,7 @@ export default {
         },
         {
           id: 4,
-          name: "Gatsby advanced starter",
+          name: "Gatsby Advanced Starter",
           url: "https://github.com/Vagr9K/gatsby-advanced-starter",
           description:
             "A high performance skeleton starter for GatsbyJS that focuses on SEO/Social features/development environment.",
@@ -79,6 +81,13 @@ export default {
         }
         return 0;
       });
+    }
+  },
+  methods: {
+    emitGlobalClickEvent() {
+      this.clickCount++;
+      // Send the event on a channel (i-got-clicked) with a payload (the click count.)
+      EventBus.$emit("i-got-clicked", this.clickCount);
     }
   }
 };
