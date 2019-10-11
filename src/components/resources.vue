@@ -82,14 +82,13 @@ export default {
         return 0;
       });
     }
-  },
-  methods: {
-    emitGlobalClickEvent() {
-      this.clickCount++;
-      // Send the event on a channel (i-got-clicked) with a payload (the click count.)
-      EventBus.$emit("i-got-clicked", this.clickCount);
-    }
   }
+  // methods: {
+  //   sendData: function() {
+  //     // Send the event on a channel (websites)
+  //     EventBus.$emit("tags", this.websites);
+  //   }
+  // }
 };
 </script>
 

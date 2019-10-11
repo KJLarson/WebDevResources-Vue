@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <h1>Web Development Resources</h1>
+    <!-- <Buttons></Buttons> -->
     <Resources></Resources>
   </div>
 </template>
 
 <script>
 import Resources from "./components/resources";
+// import Buttons from "./components/buttons";
 
 export default {
   name: "App",
   components: {
     Resources
+    // Buttons
   }
 };
 </script>
